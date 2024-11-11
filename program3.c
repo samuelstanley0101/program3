@@ -29,9 +29,9 @@ int main(void) {
     // print header
     fprintf(average, "%-20s", "Name");
     for (int i = 1; i <= 10; i++) {
-        fprintf(average, "%-4d", i);
+        fprintf(average, "%4d", i);
     }
-    fprintf(average, "%-10s\n", "Average");
+    fprintf(average, "%10s\n", "Average");
 
     // write information
     int noc = extract_name(quiz, average);
@@ -97,15 +97,15 @@ int extract_scores(FILE* input, FILE* output) {
     int score, total = 0, noc, i = 0;
     noc = fscanf(input, "%d", &score);
     while (noc > 0 && i < 10) {
-        fprintf(output, "%-4d", score);
+        fprintf(output, "%4d", score);
         total += score;
         i++;
         noc = fscanf(input, "%d", &score);
     }
     while (i < 10) {
-        fprintf(output, "%-4d", 0);
+        fprintf(output, "%4d", 0);
         i++;
     }
-    fprintf(output, "%-10f", total / 10.0);
+    fprintf(output, "%10.4f", total / 10.0);
     return noc;
 }
